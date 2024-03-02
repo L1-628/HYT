@@ -1,0 +1,14 @@
+#include<stdio.h>
+{
+    int age = 17;
+    float weight = 35;
+    double hight = 150;
+
+    age = 17+1;
+    weight = 35+5;
+    hight = 150+2;
+    printf("%d\n",age);
+    printf("%lf\n",weight);
+    printf("%f\n",hight);
+    return 0;
+}
