@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    int 哈哈 = 0;
+    while(哈哈 < 1000)
+    {
+        printf("开心:%d\n",哈哈);
+        哈哈++;
+    }
+    if(哈哈 == 1000)
+    {
+        printf("长命百岁\n");
+    }
+    return 0;
+}
