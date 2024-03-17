@@ -1,0 +1,27 @@
+#define  _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+	printf("c:\text\text.c");
+	printf("(are you ok??)");
+	printf("%c\n",'a');
+	printf("%c\n",'\'');
+	printf("%s\n","abc");
+	printf("%s\n","a");
+	printf("%s\n","\"");
+	printf("%d",100);      //转义字符 
+	printf("%c",'a');
+	printf("%s","hyuting");
+	printf("c;\\text\\textc");
+	printf("\r");
+	printf("\f");
+	printf("\v");
+	printf("\ddd");//八进制转十进制作为ASCLL码值：ddd表示1-3个八进制数字
+	printf("\xdd");//十六进制转十进制作为ASCLL码值：dd表示2个十六进制数字
+	printf("%c\n",'\130');//ctrl+k+c 注释
+	printf("%d\n",'\101');//ctrl+k+u 撤销注释
+	//printf("%d\n",'\x30');C++的注释风格：可以注释一行也可以注释多行
+	/*printf("%d\n", strlen("zhouwendi"));*///C语言的注释风格：不能嵌套注释
+	printf("");
+	return 0;
+}
