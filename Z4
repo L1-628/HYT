@@ -1,0 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+    int input = 0;
+    printf("做我男朋友:>\n");
+    printf("要不要做我男朋友（0/1）?>\:");
+    scanf("%d",&input);
+    if (input == 0)
+    {
+        printf("上天堂\n");
+    }
+    else
+    {
+        printf("下地狱\n");
+    }
+    return 0;
+}
