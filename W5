@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+	float a = 9 / 2.0;
+	int b = 9 % 2;
+	int c = 2;
+	int d = c << 1;
+	printf("%f\n",a);
+	printf("%d\n",b);
+	printf("%d\n",d);
+	return 0;
+}
