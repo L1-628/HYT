@@ -1,0 +1,14 @@
+int main()
+{
+	int a = 3;
+	int b = ++a;
+	int c = 6;
+	int e = c++;
+	int w = (int)1.314;
+	printf("%d\n",a);
+	printf("%d\n", b);
+	printf("%d\n", c);
+	printf("%d\n", e);
+	printf("%d\n", w);
+	return 0;
+}
