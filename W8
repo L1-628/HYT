@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+	int a = 3;
+	int c = 0;
+	int sum = (a = c + 6, c = a +6 ,a = c -7);
+	printf("%d\n", sum);
+	return 0;
+}
