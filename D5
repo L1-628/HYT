@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+  int a = 0;
+  if （a）
+  {
+      printf("good boy!");
+  }
+   if (!a)
+   {
+    printf("bad kid!");
+   }
+  return 0;
+}
