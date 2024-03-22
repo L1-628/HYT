@@ -1,0 +1,16 @@
+#include<stdio.h>
+struct boyfriend
+{
+    char name[20];
+    int age;
+    float weight;
+    double hight;
+};
+
+int main()
+{
+    struct boyfriend baby = { "周文迪",20,50,170 };
+    printf("%s %d %f %lf\n", baby.name, baby.age, baby.weight, baby.hight);
+
+    return 0;
+}
