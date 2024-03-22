@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main()
+{
+    int a = 10;
+    printf("%p\n",&a);
+    int * p = &a;
+    char b = 'w';
+    printf("%p\n",&b);
+    int * ps = &b;
+    return 0;
+}
