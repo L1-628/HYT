@@ -1,0 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+int z = 0;
+scanf("%d", &z);
+if(z % 8 == 0)
+printf("YES");
+else
+printf("NO");
+return 0;
+}
