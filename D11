@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    int age = 0;
+    if(age >= 18)
+    {
+        printf("已成年");
+    }
+    else
+    {
+        printf("未成年");
+        printf("不能谈恋爱");
+    }
+    return 0;
+}
