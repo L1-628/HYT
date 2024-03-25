@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+    int num = 628;
+    if(num % 5 == 1)
+    printf("geigei\n");
+else
+    printf("heihei\n");
+    return 0;
+}
