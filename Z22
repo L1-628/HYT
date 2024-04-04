@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+    int x = 3;
+    int y = 3;
+    switch (x % 2)
+    {
+    case 1:
+        switch (y)
+        {
+        case 0:
+            printf("z");
+        case 1:
+            printf("w");
+        default:
+            printf("d");
+        }
+
+    case 2 :
+        printf("hyt");
+    }
+    return 0;
+}
