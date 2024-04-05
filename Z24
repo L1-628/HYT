@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+    int a = 0;
+    int b = 0;
+    scanf("%d%d", &a,&b);
+    int min = 0;
+    if(a > b)
+    {
+        min = a;
+    }
+    if(a < b)
+    {
+        min = b;
+    }
+    while(1)
+    {
+        if(min % a == 0 && min % b == 0)
+       {
+            printf("%d\n", min);
+            break;
+       }
+        min ++;
+    }
+    return 0;
+}
