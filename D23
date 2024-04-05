@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int main()
+{
+    int a = 0;
+    int b = 0;
+    scanf("%d%d", &a, &b);
+    int n = 0;
+    int max = 0;
+    int min = 0;
+    n = a * b;
+    while(a % b)
+    {
+        max = a % b;
+        a = b;
+        b = max;
+    }
+    min = n / b;
+    printf("%d\n", min);
+    return 0;
+}
