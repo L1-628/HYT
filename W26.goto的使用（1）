@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+flag:
+  printf("周文迪\n");
+  printf("何玉婷\n");
+  goto flag;
+  return 0;
+}
