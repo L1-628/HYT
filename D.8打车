@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+    //定义变量
+    double weight = 0;
+    double cash = 0;
+    //输入weight
+    scanf("%lf",&weight);
+    //如果weight<= 50
+    if (weight <= 50)
+    {
+        cash = weight * 0.5;  
+    }
+    //如果weight> 50
+    else
+    {
+        //定义多余的部分
+        double add = 0;
+        add = weight - 50;
+        cash = 50 * 0.5 + add * 0.6; 
+    }
+    //double为双精度，所以输出和输入都要用lf
+    printf("%lf\n", cash);
+    return 0;
+}
