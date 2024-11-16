@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+struct student{
+	char name[20];
+	int lk,wk,ty;
+}s[101];
+int main()
+{
+	int n;
+	
+	cin>>n;
+	while(n--){
+		int m,s1=0,s2=0,s3=0,e=0;
+		cin>>m;
+		for(int i =0;i<m;i++){
+			cin>>s[i].name>>s[i].lk>>s[i].wk>>s[i].ty;
+			if(s[i].lk>s1){
+				s1=s[i].lk;
+			}
+			if(s[i].wk>s2){
+			s2=s[i].wk;
+			}
+			if(s[i].ty>s3){
+				s3=s[i].ty;
+			}
+		}
+		for(int i =0;i<m;i++){
+			if(s1==s[i].lk&&s2==s[i].wk&&s3==s[i].ty){
+				e=1;
+				cout<<s[i].name<<endl;
+				break;
+			}
+		}
+		if(e==0){
+			cout<<"NO NO.1"<<endl;
+		}
+		
+		
+	}
+	return 0;
+}
