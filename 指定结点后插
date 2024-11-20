@@ -1,0 +1,39 @@
+//在第i个位置插入元素e（带头结点） 
+typedef struct LNode{
+	ElemType data;
+	struct LNode *next;
+}LNode,*LinkList;
+//后插操作：在p结点之后插入元素e
+bool InsertNextNode(LNode *p,ElemType e) {
+	if(p==NULL){
+		return false;
+	}
+	LNode *s=(LNode *)malloc(sizeof(LNode));
+	if(s==NULL){//内存分配失败 
+	    return false; 
+    }
+    s->data=e;//用结点s保存数据元素e 
+    s->next=p->next;
+    p->next=s;//将结点连接到p之后 
+    return true;
+}
+bool ListTnsert(LinkList &L,int i,ElemType e){
+	if(i<1){
+		return flase;
+	}
+	LNode *p;//指针p指向当前扫描到的结点 
+	int j=0;//当p指向的结点是第几结点 
+	p=L;//L指向头结点，头结点是第0个结点（不存数据） 
+	while(p!=NULL&&j<i-1){//循环找到第i-1个结点 
+		p=p->next;
+		j++;
+	}
+	if(p==NULL){//i值不合法 
+		return false;
+	}
+	LNode *s=(LNode *)malloc(sizeof(LNode));
+	s->data=e;
+	s->next=p->next;
+	p->next=s;//将结点s连到p之后 
+	return true;//插入成功 
+}
