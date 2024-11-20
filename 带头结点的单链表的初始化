@@ -1,0 +1,27 @@
+typedef struct LNode{//定义单链表的结点类型 
+	ElemTpe data;//每个结点存放一个数据元素 
+	struct LNode *next;//指针指向下一结点 
+}LNode,*LinkList; 
+//初始化一个空的链表（带头结点） 
+bool InitList(LinkList L,&L){
+	L=(LNode *)malloc(sizeof(LNode)); 
+	if(L==NULL){
+		return false;
+	}
+	L->next=NULL;
+	return true;
+}
+bool Empty(LinkList L){
+	if(L==NULL){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+void test(){
+	LinkList L;//声明一个指向单链表的指针
+	//初始化一个空表 
+	InitList();
+	//.........
+}
