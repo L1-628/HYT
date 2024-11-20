@@ -1,0 +1,21 @@
+typedef struct LNode{//定义单链表结点类型 
+	ElemType data;//每个结点存放一个数据元素 
+	struct LNode *next;//指针指向下一个结点 
+}LNode,*LinkList;
+LNode *GetElem(LinkList L,int i){
+	int j=1;
+	LNode *p=L->next;
+	if(i==0){
+		return L;
+	}
+	if(i<1){
+		return NULL;
+	}
+	while(p!=NULL&&j<i){
+		p=p->next;
+		j++;
+	}
+	return p;
+}
+//强调这是一个单链表--LinkList； 
+//强调这是一个结点--LNode*；
