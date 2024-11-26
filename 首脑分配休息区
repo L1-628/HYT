@@ -1,0 +1,80 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+const int MAX_N = 1000;  
+
+int main() {
+    int N, M;
+    cin >> N >> M;
+    
+    int graph[MAX_N + 1][MAX_N + 1] = {0};
+    for (int i = 0; i < M; ++i) {
+        int a, b;
+        cin >> a >> b;
+        graph[a][b] = graph[b][a] = 1;  
+    }
+
+    int K;
+    cin >> K;
+    for (int i = 1; i <= K; ++i) {
+        int L;
+        cin >> L;
+        int areaPeople[MAX_N];
+        for (int j = 0; j < L; ++j) {
+            cin >> areaPeople[j];
+        }
+
+        bool allFriends = true;
+        
+        for (int ii = 0; ii < L; ++ii) {
+            for (int jj = ii + 1; jj < L; ++jj) {
+                int p1 = areaPeople[ii];
+                int p2 = areaPeople[jj];
+                if (graph[p1][p2]!= 1) {
+                    allFriends = false;
+                    break;
+                }
+            }
+            if (!allFriends) break;
+        }
+
+        if (!allFriends) {
+            cout << "Area " << i << " needs help." << endl;
+            continue;
+        }
+
+        bool canInviteMore = false;
+        int invitePerson = -1;
+        for (int person = 1; person <= N; ++person) {
+            bool isInArea = false;
+            for (int k = 0; k < L; ++k) {
+                if (areaPeople[k] == person) {
+                    isInArea = true;
+                    break;
+                }
+            }
+            if (!isInArea) {
+                bool isFriendToAll = true;
+                for (int p = 0; p < L; ++p) {
+                    int currentPerson = areaPeople[p];
+                    if (graph[currentPerson][person]!= 1) {
+                        isFriendToAll = false;
+                        break;
+                    }
+                }
+                if (isFriendToAll) {
+                    canInviteMore = true;
+                    invitePerson = person;
+                    break;
+                }
+            }
+        }
+
+        if (canInviteMore) {
+            cout << "Area " << i << " may invite more people, such as " << invitePerson << "." << endl;
+        } else {
+            cout << "Area " << i << " is OK." << endl;
+        }
+    }
+    return 0;
+}
