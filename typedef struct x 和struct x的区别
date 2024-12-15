@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+typedef struct point{
+	int x;
+	int y;
+}point;
+struct hello{
+	int x,y;
+}hello;
+int main() {
+	point pt1;
+	pt1.x = 2;
+	pt1.y = 5;
+	cout << "ptpt1.x=" << pt1.x << "\tpt.y=" << pt1.y << endl;
+	hello.x = 8;
+	hello.y = 10;
+	cout << "hellohello.x=" << hello.x << "\thello.y=" << hello.y << endl;
+	return 0;
+}
+// ptpt1.x=2       pt.y=5
+// hellohello.x=8  hello.y=10
