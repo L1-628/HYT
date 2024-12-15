@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+typedef int* one, *two;
+typedef char* PCHAR;
+int main() {
+	one a = NULL;
+	two b = NULL;
+	PCHAR pa, pb;
+	return 0;
+}
+//定义一种类型的别名，而不只是简单的宏替换。可以用作同时声明指针型的多个对象。比如：
+//char* pa, pb; // 这多数不符合我们的意图，它只声明了一个指向字符变量的指针，和一个字符变量；
+//以下则可行：
+//typedef char* PCHAR; // 一般用大写
+//PCHAR pa, pb; // 可行，同时声明了两个指向字符变量的指针
+//虽然：
+//char* pa, * pb;
+//也可行，但相对来说没有用typedef的形式直观，尤其在需要大量指针的地方，typedef的方式更省事。
