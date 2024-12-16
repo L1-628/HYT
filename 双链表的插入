@@ -1,0 +1,17 @@
+#include<stdlib.h>
+typedef struct DNode {
+	int data;
+	struct DNode* prior, * next;
+}DNode,*DLinkList;
+bool InsertNextDNode(DNode *p,DNode*s){
+	if (p == NULL || s == NULL) {//非法参数
+		return false;
+	}
+	s->next = p->next;
+	if (p->next != NULL) {//如果p结点后有后继点
+		p->next->prior = s;
+	}
+	s->prior = p;
+	p->next = s;
+	return true;
+}
