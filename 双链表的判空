@@ -1,0 +1,16 @@
+#include<stdlib.h>
+typedef struct DNode {
+	int data;
+	struct DNode* prior, * next;
+}DNode,*DLinklist;
+bool Empty(DLinklist L) {
+	if (L->next == NULL) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+void testDLinkList() {
+	DLinklist L;
+}
