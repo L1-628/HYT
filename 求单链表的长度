@@ -1,0 +1,13 @@
+#include<stdlib.h>
+typedef struct LNode {
+	int data;
+	struct LNode* next;
+}LNode,*LinkList;
+int Lenght(LinkList L) {
+	LNode* p=L->next;
+	int lenght=0;
+	while (p != NULL) {
+		lenght++;
+	}
+	return lenght;
+}
