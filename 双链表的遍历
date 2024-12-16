@@ -1,0 +1,20 @@
+#include<stdlib.h>
+typedef struct DNode {
+	int data;
+	struct DNode* prior, * next;
+}DNode,*DLinkList;
+//向后遍历
+while(p != NULL) {
+	//对p结点进行相应处理，如打印
+	p = p->next;
+}
+//向前遍历
+while (p != NULL) {
+	//对p结点进行相应处理
+	p = p->prior;
+}
+//向前遍历（跳过头节点）
+while (p->prior != NULL) {
+	//对p结点进行相应处理
+	p = p->prior;
+}
