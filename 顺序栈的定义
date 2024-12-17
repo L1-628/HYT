@@ -1,0 +1,9 @@
+#define MaxSize 10    //定义栈中元素的最大个数
+typedef struct {
+	int data[MaxSize];   //静态数组存放栈中元素
+	int top;    //栈顶指针
+}SqStack;
+void testStack() {
+	SqStack S; //声明一个顺序栈（分配空间）
+	//。。。后续操作。。。
+}
