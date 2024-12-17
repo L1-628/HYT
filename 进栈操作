@@ -1,0 +1,13 @@
+#define MaxSize 10//定义栈中元素的最大个数
+typedef struct {
+	int data[MaxSize];//静态数组存放栈中元素
+	int top;//栈顶指针
+}SqStack;
+//新元素入栈
+bool Push(SqStack& S, int x) {
+	if (S.top == MaxSize - 1) {//栈满，报错
+		return false;
+	}
+	S.data[++S.top] = x;//指针先加1，新元素入栈
+	return true;
+}
