@@ -1,0 +1,38 @@
+#include<stdlib.h>
+typedef struct DNode {
+	int data;
+	struct DNode* prior, * next;
+}DNode,*DLinkList;
+//初始化空的循环双链表
+bool InitDLinkList(DLinkList &L) {
+	L = (DNode*)malloc(sizeof(DNode));//分配一个头结点
+	if (L == NULL) {
+		return false;//内存不足，分配失效
+	}
+	L->prior = L;//头结点的prior指向头结点
+	L->next = L;//头结点的next指向头结点
+	return true;
+}
+//判断循环双链表是否为空
+bool Empty(DLinkList L) {
+	if (L->next == L) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+bool isTailo(DLinkList L, DNode* p) {
+	if (p->next == L) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+void testDLikList(){
+	//初始化循环双链表
+	DLinkList L;
+	InitDLinkList(L);
+	//后续代码......
+}
