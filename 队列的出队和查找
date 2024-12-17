@@ -1,0 +1,22 @@
+#define MaxSize 10//定义队列中元素的最大个数
+typedef struct {
+	int data[MaxSize];//用静态数组存放队列元素
+	int front, rear;//队头指针和队尾指针
+}SqQueue;
+//出队（删除一个队头元素，并用x返回）
+bool DeQueue(SqQueue& Q, int& x) {
+	if (Q.rear == Q.front) {
+		return false;//队空则报错
+	}
+	x = Q.data[Q.front];
+	Q.front = (Q.front + 1) % MaxSize;
+	return true;
+}
+//获得队头元素的值，用x返回
+bool GetHead(SqQueue Q, int& x) {
+	if (Q.rear == Q.front) {
+		return false;//队空则报错
+	}
+	x = Q.data[Q.front];
+	return true;
+}
