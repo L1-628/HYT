@@ -1,0 +1,12 @@
+#define MaxSize 10//定义栈中元素的最大个数
+typedef struct {
+	int data[MaxSize];//静态数组存放栈中元素
+	int top0;//0号栈顶指针
+	int top1;//1号栈顶指针
+}ShStack;
+//初始化栈
+void InitStsck(ShStack& S) {
+	S.top0 = -1;//初始化栈指针
+	S.top1 = MaxSize;
+}
+//栈满条件：top0+1=top1
