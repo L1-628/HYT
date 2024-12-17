@@ -1,0 +1,18 @@
+#include<stdlib.h>
+typedef struct DNode {
+	int data;
+	struct DNode* prior, * next;
+}DNode,*DLinkList;
+//在p结点之后插入s结点
+bool InsertNextDNode(DNode *p,DNode *s){
+	s->next = p->next;//将结点*s插入到结点*p之后
+	p->next->prior = s;
+	s->prior = p;
+	p->next = s;
+}
+//删除p的后继结点s
+bool DeleteNextDNode(DNode*p,DNode*s){
+	p->next = s->next;
+	s->next->prior = p;
+	free(s);
+}
