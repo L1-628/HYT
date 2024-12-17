@@ -1,0 +1,13 @@
+#define MaxSize 10//定义栈中元素的最大个数
+typedef struct {
+	int data[MaxSize];//静态数组存放栈中元素
+	int top;//栈顶指标
+}SqStack;
+//出栈操作
+bool Pop(SqStack& S, int& x) {
+	if (S.top == -1) {//栈空，报错
+		return false;
+	}
+	x = S.data[S.top--];//栈顶元素先出栈，指针再减一
+	return false;
+}
