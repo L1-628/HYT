@@ -1,0 +1,21 @@
+#include<stdlib.h>
+typedef struct LinkNode {
+	int data;
+	struct LinkNode* next;
+}LinkNode;
+typedef struct {
+	LinkNode* front, * rear;
+}LinkQueue;
+void EnQueue(LinkQueue &Q,int x) {
+	LinkNode* s = (LinkNode*)malloc(sizeof(LinkNode));
+	s->data = x;
+	s->next = NULL;
+	if (Q.front == NULL) {
+		Q.front = s;
+		Q.rear = s;
+	}
+	else {
+		Q.rear->next = s;
+		Q.rear = s;
+	}
+}
