@@ -1,0 +1,17 @@
+#define MAXLEN 255//预定最大串长为255
+typedef struct {
+	char ch[MAXLEN];//每个分量存储一个字符
+	int length;//串的实际长度
+}SString;
+//求子串
+bool SubString(SString &Sub,SString S, int pos, int len) {
+	//字串范围越界
+	if (pos + len - 1 > S.length) {
+		return false;
+	}
+	for (int i = pos;i < pos + len;i++) {
+		Sub.ch[i - pos + 1] = S.ch[i];
+	}
+	Sub.length = len;
+	return true;
+}
