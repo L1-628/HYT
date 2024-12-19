@@ -1,0 +1,10 @@
+//先求next数组，再由next数组求nextval数组
+nextval[1] = 0;
+for(int j = 2;j <=T.length;j++) {
+	if (T.ch[next[j]] == T.ch[j]) {
+		nextval[j] = nextval[next[j]];
+	}
+	else {
+		nextval[j] = next[j];
+	}
+}
