@@ -1,0 +1,24 @@
+//二叉树的结点（链式存储）
+#include<stdlib.h>
+struct ElemType {
+	int value;
+};
+typedef struct BiTNode {
+	int data;//数据域
+	struct BiTNode* lchild, * rchild;//左，右孩子指针
+}BiTNode,*BiTree;
+bool EnTree(BiTree root) {
+	//定义一棵空树
+	BiTree root = NULL;
+	//插入根节点
+	root = (BiTree)malloc(sizeof(BiTNode));
+	root->data = { 1 };
+	root->lchild = NULL;
+	root->rchild = NULL;
+	//插入新结点
+	BiTNode* p = (BiTNode*)malloc(sizeof(BiTNode));
+	p->data = { 2 };
+	p->lchild = NULL;
+	p->rchild = NULL;
+	root->lchild = p;//作为根节点的左孩子
+}
