@@ -1,0 +1,9 @@
+#define MaxSize 100
+struct TreeNode {
+	int value;//结点中的数据元素
+	bool isEmpty;//结点是否为空
+};
+TreeNode t[MaxSize];
+for (int i = 0;i < MaxSize;i++) {
+	t[i].isEmpty = true;
+}
