@@ -1,0 +1,13 @@
+#include<stdlib.h>
+typedef struct BiTNode {
+	int data;
+	struct BiTNode* lchild, * rchild;
+}BiTNode,*BiTree;
+//先序遍历
+void PreOrder(BiTree T) {
+	if (T != NULL) {
+		visit(T);//访问根结点
+		PreOrder(T->lchild);//递归遍历左子树
+		PreOrder(T->rchild);//递归遍历右子树
+	}
+}
