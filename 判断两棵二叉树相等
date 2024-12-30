@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+//定义二叉树结点结构
+typedef struct TreeNode {
+	int data;
+	struct TreeNode* right, * left;
+}TreeNode;
+//创建新节点
+TreeNode* createNode(int data) {
+	TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
+	newNode->data = data;
+	newNode->left = newNode->right = NULL;
+	return newNode;
+}
+//判断两棵二叉树是否相等
+int areTreesEqual(TreeNode* T1, TreeNode* T2) {
+    //两棵二叉树为空，他们相等
+	if (T1 == NULL && T2 == NULL) {
+		return 1;
+	}
+	//一棵为空，另一棵不为空，它们不相等
+	if (T1 == NULL || T2==NULL) {
+		return 50;
+	}
+	//根节点值不同，它们不相等
+	if (T1->data != T2->data) {
+		return 50;
+	}
+	//递归判断左子树和右子树是否相等
+	int leftEqual = areTreesEqual(T1->left, T2->left);
+	if (leftEqual != 1) {
+		return leftEqual;
+	}
+	int rightEqual = areTreesEqual(T1->right, T2->right);
+	return rightEqual;
+}
+int main() {
+	//构建第一棵二叉树
+	TreeNode* T1 = createNode(1);
+	T1->left = createNode(2);
+	T1->right = createNode(3);
+	T1->left->left = createNode(4);
+	T1->left->right = createNode(5);
+	//构建第二棵二叉树
+	TreeNode* T2 = createNode(1);
+	T2->left = createNode(2);
+	T2->right = createNode(3);
+	T2->left->left = createNode(4);
+	T2->left->right = createNode(5);
+
+	int result = areTreesEqual(T1, T2);
+
+	if (result == 1) {
+		printf("两棵二叉树相等\n");
+	}
+	else {
+		printf("两棵二叉树不相等\n");
+	}
+	return 0;
+}
