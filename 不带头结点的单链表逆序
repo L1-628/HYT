@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<stdlib.h>
+//定义链表结点结构
+typedef struct ListNode {
+	int val;
+	struct ListNode* next;
+}ListNode,*LinkList;
+//创建新节点
+ListNode* createNode(int val) {
+	ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
+	newNode->val = val;
+	newNode->next = NULL;
+	return newNode;
+}
+//逆序链表
+ListNode* reverseList(ListNode* head) {
+	if (head == NULL || head->next == NULL) {
+		return head;
+	}
+	ListNode* newHead = reverseList(head->next);
+	head->next->next = head;
+	head->next = NULL;
+	return newHead;
+}
+//打印链表
+void printList(ListNode* head) {
+	ListNode* current = head;
+	while (current != NULL) {
+		printf("%d->", current->val);
+		current = current->next;
+	}
+	printf("NULL\n");
+}
+//释放链表内存
+void freeList(ListNode* head) {
+	ListNode* current = head;
+	ListNode* next;
+	while (current != NULL) {
+		next = current->next;
+		free(current);
+		current = next;
+	}
+}
+int main() {
+	//创建链表
+	ListNode* head = createNode(1);
+	head->next = createNode(2);
+	head->next->next = createNode(3);
+	head->next->next->next = createNode(4);
+	head->next->next->next->next = createNode(5);
+
+	printf("Original list:");
+	printList(head);
+
+	head = reverseList(head);
+
+	printf("Reversed list:");
+	printList(head);
+
+	freeList(head);
+	return 0;
+}
