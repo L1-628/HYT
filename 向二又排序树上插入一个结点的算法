@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct BSTNode {
+	int data;
+	BSTNode* left, * right;
+}BSTNode,*BSTree;
+
+BSTNode* createNode(int data) {
+	BSTNode* newNode = (BSTNode*)malloc(sizeof(BSTNode));
+	newNode->data = data;
+	newNode->left = NULL;
+	newNode->right = NULL;
+	return newNode;
+}
+
+void insertNode(BSTree* root, int data) {
+	if (*root == NULL) {
+		*root = createNode(data);
+		return;
+	}
+	if (data < (*root)->data) {
+		insertNode(&(*root)->left, data);
+	}
+	if (data > (*root)->data) {
+		insertNode(&(*root)->right, data);
+	}
+}
+
+void inorderTraversal(BSTree root) {
+	if (root != NULL) {
+		inorderTraversal(root->left);
+		printf("%d ", root->data);
+		inorderTraversal(root->right);
+	}
+}
+
+void freeTree(BSTree root) {
+	if (root != NULL) {
+		freeTree(root->left);
+		freeTree(root->right);
+		free(root);
+	}
+}
+
+int main() {
+	BSTree root = NULL;
+	insertNode(&root, 50);
+	insertNode(&root, 30);
+	insertNode(&root, 20);
+	insertNode(&root, 40);
+	insertNode(&root, 70);
+	insertNode(&root, 60);
+	insertNode(&root, 80);
+
+	printf("中序遍历二叉排序树：");
+	inorderTraversal(root);
+	printf("\n");
+	freeTree(root);
+	return 0;
+}
