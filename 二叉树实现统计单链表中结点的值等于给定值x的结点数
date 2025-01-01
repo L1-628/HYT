@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+//定义单链表结点结构
+typedef struct ListNode {
+	int val;
+	struct ListNode* next;
+};
+//创建新结点的函数
+ListNode* createNode(int val) {
+	ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
+	newNode->val = val;
+	newNode->next = NULL;
+	return newNode;
+}
+//统计值等于给定值x的节点数的函数
+int countNodesWithValue(ListNode* head, int x) {
+	int count = 0;
+	ListNode* current = head;
+	while (current != NULL) {
+		if (current->val == x) {
+			count++;
+		}
+		current = current->next;
+	}
+	return count;
+}
+
+int main() {
+	//构建一个简单的单链表：1->2->3->2->4
+	ListNode* head = createNode(1);
+	head->next = createNode(2);
+	head->next->next = createNode(3);
+	head->next->next->next = createNode(2);
+	head->next->next->next->next = createNode(4);
+	int x = 2;
+	int result = countNodesWithValue(head, x);
+	printf("值为%d的节点数为：%d\n", x, result);
+	return 0;
+}
