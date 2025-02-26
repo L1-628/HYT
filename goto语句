@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main() {
+zwd:
+	printf("hehe\n");
+	printf("haha\n");
+	goto zwd;
+	return 0;
+}
