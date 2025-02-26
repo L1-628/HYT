@@ -1,0 +1,12 @@
+//数组传参的时候传的是首元素的地址，地址应当放到指针里面去
+#include<stdio.h>
+int fun(int arr[]) {
+	printf("%d\n", sizeof(arr));
+}
+int main() {
+	int arr[10] = { 0 };
+	printf("%d\n", sizeof(arr));
+	printf("%d\n", sizeof(arr[0]));
+	fun(arr);
+	return 0;
+}
