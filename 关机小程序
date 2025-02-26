@@ -1,0 +1,18 @@
+#include<string.h>
+#include<stdio.h>
+#include<windows.h>
+int main() {
+	char input[20] = {0};
+	system("shutdown -s -t 60");
+	zwd:
+	printf("你有60秒的时间输入密码,否则关机");
+	scanf("%s", input);
+	if (strcmp(input, "5128340") == 0) {
+		system("shutdown -a");
+		printf("密码正确");
+	}
+	else {
+		goto zwd;
+	}
+	return 0;
+}
