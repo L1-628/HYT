@@ -1,0 +1,14 @@
+#include<stdio.h>
+int test(int* p) {
+	(*p)++;
+}
+int main() {
+	int num = 0;
+	test(&num);
+	test(&num);
+	test(&num);
+	test(&num);
+	test(&num);
+	printf("%d\n", num);
+	return 0;
+}
