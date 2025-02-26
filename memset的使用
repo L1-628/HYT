@@ -1,0 +1,7 @@
+#include<stdio.h>
+int main() {
+	char arr[20] = "hello we";
+	memset(arr, 'A', 4);
+	printf("%s\n", arr);
+	return 0;
+}
