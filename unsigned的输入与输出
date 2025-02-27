@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main() {
+	unsigned int a = 0;
+	scanf("%u", &a);
+	printf("%u\n", a);
+	return 0;
+}
+//%d是打印有符号的整数（有正负数）
+//%u是打印无符号的整数（没有负数）
