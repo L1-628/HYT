@@ -1,0 +1,24 @@
+#include<stdio.h>
+//x为移动的盘子的个数，a位置为开始栏，b位置为工具栏，c位置为终点栏
+void hanno(int x, char a, char b, char c) {
+	if (x>0) {
+		//先把n-1的盘子从a位置移动到b位置
+		hanno(x - 1, a,c,b);
+		//移动第n个盘子，从a位置到c位置
+		printf("%c-->%c\n", a, c);
+		//再把n-1的盘子从b位置移动到c位置
+		hanno(x - 1, b, a, c);
+	}
+	
+}
+int main() {
+	char a = 'A';
+	char b = 'B';
+	char c = 'C';
+	int num = 0;
+	//盘子的数量
+	scanf("%d", &num);
+	hanno(num,a,b,c);
+
+	return 0;
+}
