@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+//字符串逆序（递归实现）
+#include<stdio.h>
+#include<stdlib.h>
+void reverse(char* str) {
+	//首元素赋给temp
+	char temp = *str;
+	//计算字符串长度
+	int len = strlen(str);
+	//最后一个字符赋给第一个字符
+	*str = *(str + len - 1);
+	//最后一个字符设置为0
+	*(str + len - 1) = '\0';
+	//逆序（去掉第一个字符和最后一个字符）
+	if (strlen(str + 1) >= 2) {
+		reverse(str + 1);
+	}
+	//temp赋给最后一个元素
+	*(str + len - 1) = temp;
+}
+int main() {
+	char arr[] = "abcdefg";
+	
+	reverse(arr);
+	printf("%s\n", arr);
+	return 0;
+}
