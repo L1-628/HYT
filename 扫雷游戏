@@ -1,0 +1,168 @@
+//game.h
+#pragma once
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+#define ROW 9
+#define COL 9
+#define ROWS ROW+2
+#define COLS COL+2
+#define EASY_COUNT 10
+
+void InitBoard(char board[ROWS][COLS], int rows, int cols, char ret);
+
+void DisplayBoard(char board[ROWS][COLS], int row, int col);
+
+void SetMain(char board[ROWS][COLS], int row, int col);
+
+void FindMain(char main[ROWS][COLS], char show[ROWS][COLS], int row, int col);
+
+
+
+//game.c
+#define _CRT_SECURE_NO_WARNINGS
+#include"game.h"
+
+//初始化
+void InitBoard(char board[ROWS][COLS], int rows, int cols, char set) {
+	for (int i = 0;i < rows;i++) {
+		for (int j = 0;j < cols;j++) {
+			board[i][j] = set;
+		}
+	}
+}
+
+void DisplayBoard(char board[ROWS][COLS], int row, int col) {
+	printf("-----扫雷游戏-----\n");
+	for (int j = 0;j <= col;j++) {
+		printf("%d ", j);
+	}
+	printf("\n");
+	for (int i = 1;i <= row;i++) {
+		printf("%d ", i);
+		for (int j = 1;j <= col;j++) {
+			printf("%c ",board[i][j]);
+		}
+		printf("\n");
+	}
+	printf("-----扫雷游戏-----\n");
+}
+
+void SetMain(char board[ROWS][COLS], int row, int col) {
+	int count = EASY_COUNT;
+	//1-9
+	//1-9
+	while (count) {
+		int x = rand() % row+1;
+		int y = rand() % col + 1;
+		if (board[x][y] == '0') {
+			board[x][y] = '1';
+			count--;
+		}
+		
+
+	}
+}
+
+int get_main(char board[ROWS][COLS], int x, int y) {
+	return (board[x - 1][y - 1] + board[x][y - 1] + board[x + 1][y - 1] + board[x - 1][y]
+		+ board[x + 1][y] + board[x - 1][y + 1] + board[x][y + 1]
+		+ board[x + 1][y + 1] - 8*'0');
+}
+
+void FindMain(char main[ROWS][COLS], char show[ROWS][COLS], int row, int col) {
+	int x = 0;
+	int y = 0;
+	int win = 0;//找到非雷的个数
+	while (win<row*col-EASY_COUNT) {
+		printf("请输入你排查的坐标：>");
+		scanf("%d%d", &x, &y);
+		if (x <= row && x >= 1 && y <= col && y >= 1) {
+			if (show[x][y] != '*') {
+				printf("该坐标已经排查过了，不能重复排查\n");
+			}
+			else {
+				//如果是雷
+				if (main[x][y] == '1') {
+					printf("很遗憾，你被炸死了\n");
+					DisplayBoard(main, ROW, COL);
+					break;
+				}
+				else //如果不是雷，
+				{
+					win++;
+					//统计main数组中x, y坐标一共有几个雷
+					int count = get_main(main, x, y);
+					show[x][y] = count + '0';//转换成数字字符
+					DisplayBoard(show, ROW, COL);
+				}
+			}
+			
+		}
+		else {
+			printf("输入不合法，请重新输入\n");
+		}
+	}
+	if (win == row * col - EASY_COUNT) {
+		printf("恭喜你，排雷成功\n");
+		DisplayBoard(main, ROW, COL);
+	}
+}
+
+
+
+
+
+//test.c
+#define _CRT_SECURE_NO_WARNINGS
+
+#include"game.h"
+
+void menu() {
+	printf("*************************\n");
+	printf("*******   1.play     ****\n");
+	printf("*******   0.exit     ****\n");
+	printf("*************************\n");
+}
+
+void game() {
+	char main[ROWS][COLS] = { 0 };//存放布置好的雷的信息
+	char show[ROWS][COLS] = { 0 };//存放排查出的雷的信息
+	//初始化数组的内容为指定的内容
+	//main数组在没有布置雷的时候都是‘0’
+	InitBoard(main, ROWS, COLS,'0');
+	//show数组在没有被排查的时候都是‘*’
+	InitBoard(show, ROWS, COLS, '*');
+	//设置雷
+	SetMain(main, ROW,COL);
+	/*DisplayBoard(main, ROW, COL);*/
+	DisplayBoard(show, ROW, COL);
+	
+	//排查雷
+	FindMain(main, show, ROW, COL);
+
+}
+
+int main() {
+	int input = 0;
+	srand((unsigned int)time(NULL));
+	//设置随机数的生成起点
+	do {
+		menu();
+		printf("请选择:>");
+		scanf("%d",&input);
+		switch (input) {
+		case 1:
+			game();
+			break;
+		case 0:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("选择错误，请重新选择\n");
+		}
+	} while (input);
+	return 0;
+}
