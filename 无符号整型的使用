@@ -1,0 +1,19 @@
+#include<stdio.h>
+//使用无符号整形，可以使用负数
+int count(unsigned int x) {
+	int cot = 0;
+	while (x != 0) {
+		if (x % 2 == 1) {
+			cot++;
+		}
+		x /= 2;
+	}
+	return cot;
+}
+int main() {
+	int input = 0;
+	scanf("%d", &input);
+	
+	printf("%d\n", count(input));
+	return 0;
+}
