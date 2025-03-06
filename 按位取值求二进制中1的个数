@@ -1,0 +1,19 @@
+#include<stdio.h>
+int count(unsigned int x) {
+	int cot = 0;
+	for (int i = 0;i < 32;i++) {
+		if (((x>>1)&1)==1) {
+			cot++;
+		}
+		//&符号，可以取数字的二进制的最后一位，
+		//>>二进制向右移，反之亦然
+	}
+	return cot;
+}
+int main() {
+	int input = 0;
+	scanf("%d", &input);
+	
+	printf("%d\n", count(input));
+	return 0;
+}
