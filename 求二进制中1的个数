@@ -1,0 +1,16 @@
+#include<stdio.h>
+int count(unsigned int x) {
+	int cot = 0;
+	while (x) {
+		x = x & (x - 1);
+		cot++;
+	}
+	return cot;
+}
+int main() {
+	int input = 0;
+	scanf("%d", &input);
+	
+	printf("%d\n", count(input));
+	return 0;
+}
