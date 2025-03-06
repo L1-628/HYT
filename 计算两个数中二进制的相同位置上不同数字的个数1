@@ -1,0 +1,22 @@
+#include<stdio.h>
+int f(int x,int y) {
+	int count = 0;
+	//^异或操作符
+	//相同为0，相异为1
+	int ret = x ^ y;
+	//统计一下ret中有几个1
+	while (ret) {
+		ret = ret & (ret - 1);//计算ret中1的个数
+		count++;
+	}
+	return count;
+}
+int main() {
+	int n = 0;
+	int m = 0;
+	scanf("%d%d", &n,&m);
+	int c = f(n, m);
+	printf("%d\n",c);
+	
+	return 0;
+}
