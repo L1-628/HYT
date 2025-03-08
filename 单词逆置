@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+void reverse(char* left, char* right) {
+	while (left < right) {
+		char temp = *left;
+		*left = *right;
+		*right = temp;
+		left++;
+		right--;
+	}
+	
+}
+int main() {
+	char arr[12] = { 0 };
+	gets(arr);
+	int len = strlen(arr);
+	reverse(arr, arr + len - 1);
+	char* start = arr;
+	char* end = arr;
+	while (*start) {
+		char* end = start;
+		while (*end != ' '&&*end!='\0') {
+			end++;
+		}
+		reverse(start, end-1);
+		if(*end!='\0')
+		   end++;
+		start = end;
+	}
+	
+	printf("%s", arr);
+	return 0;
+}
