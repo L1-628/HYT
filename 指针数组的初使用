@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main() {
+	int arr1[5] = { 1,2,3,4,5 };
+	int arr2[5] = { 6,7,8,9,10 };
+	int* arr3[2] = { arr1,arr2 };
+	
+	for (int i = 0;i < 2;i++) {
+		for (int j = 0;j < 5;j++) {
+			//先访问i行的元素j的地址，再解引用
+		    /*printf("%d ", *(arr3[i]+j));*/
+
+			//先对i行的地址进行解引用，再访问j的地址，最后解引用
+			/*printf("%d ", *(*(arr3+i) + j));*/
+
+			//直接对i行的地址进行解引用，遍历j
+			printf("%d ", (*(arr3 + i))[j]);
+
+			printf("%d ", arr3[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+//以上四种等价
