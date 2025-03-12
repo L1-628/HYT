@@ -1,0 +1,22 @@
+#include<stdio.h>
+int Sub(int x, int y) {
+	return x - y;
+}
+int Add(int x, int y) {
+	return x + y;
+}
+int Mul(int x, int y) {
+	return x * y;
+}
+int Div(int x, int y) {
+	return x / y;
+}
+int main() {
+	//函数指针数组
+	int (*arr[4])(int, int) = { Sub,Add,Mul,Div };
+	
+	//指向【函数指针数组】的指针
+	int (*(*parr)[4])(int, int) = &arr;
+	
+	return 0;
+}
