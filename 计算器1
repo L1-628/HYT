@@ -1,0 +1,49 @@
+#include<stdio.h>
+
+void menu() {
+	printf("*******************************\n");
+	printf("*****    1.Sub    2.Add   *****\n");
+	printf("*****    3.Mul    4.Div   *****\n");
+	printf("*****        0.exit       *****\n");
+	printf("*******************************\n");
+}
+int Sub(int x, int y) {
+	return x - y;
+}
+int Add(int x, int y) {
+	return x + y;
+}
+int Mul(int x, int y) {
+	return x * y;
+}
+int Div(int x, int y) {
+	return x / y;
+}
+
+int main() {
+	int input = 0;
+	do {
+		menu();
+		printf("请选择：>");
+		scanf("%d", &input);
+
+		int (*pf[5])(int, int) = { 0,Sub,Add,Mul,Div };
+		if (input == 0) {
+			printf("退出游戏\n");
+			break;
+		}
+		else if(input>=1&&input<=4){
+			int a = 0;
+			int b = 0;
+			printf("请输入两个操作数：>");
+			scanf("%d%d", &a, &b);
+			printf("%d\n", pf[input](a,b));
+			
+		}
+		else {
+			printf("选择错误，重新选择\n");
+		}
+		
+	} while (input);
+	return 0;
+}
