@@ -1,0 +1,24 @@
+#include<stdio.h>
+int add(int x, int y) {
+	return x + y;
+}
+int main() {
+	int arr[10] = { 0 };
+	//&数组名-取出的数组的地址
+	int (*p)[10] = &arr;
+
+	//对于函数来说&函数名和函数名都是函数的地址
+	printf("%p\n", &add);
+	printf("%p\n", add);
+
+	//(int,int)等价于(int x,int y),*，&号可写可不写
+	int (*pf)(int,int)=&add;
+
+	int ret = (*pf)(3, 5);
+	printf("%d\n", ret);
+
+	int ret1 = add(3, 5);
+	printf("%d\n", ret1);
+	
+	return 0;
+}
