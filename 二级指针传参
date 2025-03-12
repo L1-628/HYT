@@ -1,0 +1,22 @@
+#include<stdio.h>
+void test(int **p) {
+
+}
+
+int main() {
+	
+	//把b指针的地址传过去，可以通过b指针的地址找到指针所指向的地址（也就是a的地址），从而找到元素a
+	int a = 10;
+	int* b = &a;
+	test(&b);
+
+	//用q指针指向b指针的地址，把q指针传过去，可以通过p指针找到指针b的地址，
+	// 再通过b指针找到a元素的地址，从而找到元素a
+	int* q=&b;
+	test(q);
+
+	//传指针数组过去，arr[10]传过去为*p,类型为int*，故为int**p;
+	int* arr[10];
+	test(arr);
+	return 0;
+}
