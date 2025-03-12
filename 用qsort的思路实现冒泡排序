@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+//用qsort的思路实现冒泡排序
+int cmp_int(const void* e1, const void* e2) {
+	return *(int*)e1 - *(int*)e2;
+}
+void Swap(char* buf1,char*buf2,int width) {
+	//无论什么类型的数字，都一个字节一个字节的交换
+	for (int i = 0;i < width;i++) {
+		char temp = *buf1;
+		*buf1 = *buf2;
+		*buf2 = temp;
+		buf1++;
+		buf2++;
+	}
+}
+
+void bibble(void* base,int sz,int width,int(*cmp)(const void*e1,const void*e2)){
+	for (int i = 0;i < sz;i++) {
+		for (int j = 0;j < sz-1;j++) {
+			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0) {
+				Swap((char*)base + j * width, (char*)base + (j + 1) * width,width);
+			}
+		}
+	}
+}
+
+int main() {
+	int arr[] = { 12,3,2,1,2,6,5,4,3,2,1,0 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	
+	bibble(arr, sz, sizeof(arr[0]), cmp_int);
+	for (int i = 0;i < sz;i++) {
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
