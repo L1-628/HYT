@@ -1,0 +1,14 @@
+#include<stdio.h>
+int add(int x, int y) {
+	return x + y;
+}
+int calc(int (*pf)(int, int)) {
+	int a = 9;
+	int b = 6;
+	int ret = pf(a, b);
+}
+int main() {
+	int re=calc(add);
+	printf("%d\n", re);
+	return 0;
+}
