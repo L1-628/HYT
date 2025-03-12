@@ -1,0 +1,21 @@
+#include<stdio.h>
+void test(int arr[3][5]) {
+
+}
+
+//行可以省略，列不能省略
+void test(int arr[][5]) {
+
+}
+
+//数组用指针接收，所以数组指针可以传参，int **arr不行，
+// 因为二维数组的首元素为第一行的元素，第一行为一维数组，一维数组用一级指针即可
+void test(int (*arr)[5]) {
+
+}
+
+int main() {
+	int arr[3][5] = { 0 };
+	test(arr);
+	return 0;
+}
