@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+typedef void(*pf_t)(int);//把void(*)(int)重命名为pf_t
+int main() {
+	(*(void(*)())0)();
+	//以上代码是一次函数调用，调用的是0作为地址处的函数。
+	//void(*)()---函数指针类型
+	//*(void(*)())0---把0强制转换为*(void(*)())指针类型，
+	//把0强制类型转换为：无参，返回类型是void的函数地址
+	//调用0地址处的这个函数
+
+
+	void(*signal(int,void(*)(int)))(int);
+	//void(*)(int)---函数指针，有一个int的参数
+	//*signal(int,void(*)(int))---函数指针，有一个int的参数和void(*)(int)的参数
+	//void(*signal(int,void(*)(int)))(int)---函数指针，有一个*signal(int,void(*)(int))的参数和int的参数
+	//简化为
+
+	pf_t signal(int, pf_t);
+	return 0;
+}
