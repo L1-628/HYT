@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int a = 10;
+	int b = 20;
+
+	//const修饰指针，常量指针
+	const int* p = &a;//指针的值不可以改，指针的方向可以改
+
+	//const修饰常量，指针常量
+	int* const p = &b;//指针的方向不可以改，指针的值可以改
+
+	//const修饰指针和常量
+	const int* const p = &a;//指针的值和方向都不可以改
+
+	return 0;
+}
