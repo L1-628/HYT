@@ -1,0 +1,31 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+struct student {
+	string name;
+	int age;
+	int score;
+};
+void PrintfStudent1(student s2) {
+	s2.age = 100;
+	cout << s2.name <<" " << s2.age <<" "<< s2.score<<endl;
+}
+
+void PrintfStudent2(student* s2) {
+	s2->age = 100;
+	cout << s2->name << " " << s2->age << " " << s2->score << endl;
+}
+int main() {
+	student s1;
+	s1.name = "张三";
+	s1.age = 12;
+	s1.score = 99;
+	PrintfStudent1(s1);
+	cout << s1.name << " " << s1.age << " " << s1.score << endl;
+	cout << endl;
+	PrintfStudent2(&s1);
+	cout << s1.name << " " << s1.age << " " << s1.score << endl;
+	system("pause");
+	return 0;
+}
