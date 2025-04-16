@@ -1,0 +1,49 @@
+#include<iostream>
+#include<ctime>
+#include<string>
+using namespace std;
+
+struct Student{
+	
+	string sname;
+	int score;
+};
+
+struct Teacher {
+	string tname;
+	struct Student sArray[5];
+};
+
+void AllocationSpace(struct Teacher tArray[],int len) {
+	string nameseed = "ABCDE";
+	for (int i = 0;i < len;i++) {
+		tArray[i].tname="Teacher_";
+		tArray[i].tname += nameseed[i];
+
+		for (int j = 0;j < 5;j++) {
+			tArray[i].sArray[j].sname = "Student_";
+			tArray[i].sArray[j].sname+= nameseed[j];
+			int random = rand() % 61 + 40;
+			tArray[i].sArray[j].score = random;
+		}
+	}
+}
+
+void PrintfInfo(struct Teacher tArray[], int len) {
+	for (int i = 0;i < len;i++) {
+		cout << tArray[i].tname << endl;
+		for (int j = 0;j < 5;j++) {
+			cout << "\t"<<tArray[i].sArray[j].sname << " " << tArray[i].sArray[j].score << endl;
+		}
+	}
+}
+
+int main() {
+	srand((unsigned int)time(NULL));
+	struct Teacher tArray[3];
+	int len = sizeof(tArray) / sizeof(tArray[0]);
+	AllocationSpace(tArray, len);
+	PrintfInfo(tArray, len);
+	system("pause");
+	return 0;
+}
