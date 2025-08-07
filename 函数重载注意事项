@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+//函数重载的注意事项
+//1、引用作为重载的条件
+
+void func(int &a) {//error:int &a=10;不合法
+	cout << "func的调用" << endl;//可读可写
+}
+
+void func(const int &a) {//const int &a=10;合法
+	cout << "const func的调用" << endl;//只读
+}
+
+//2、函数重载碰到默认参数
+//void func2(int a,int b=10) {
+//	cout << "func2的调用" << endl;
+//}
+//
+//void func2(int a) {
+//	cout << "func2的调用" << endl;
+//}
+int main() {
+
+	int a = 10;
+	func(a);
+	func(10);
+	//func2(10);//当函数重载碰到默认参数，出现二义性，报错，尽量避免这种情况出现
+	system("pause");
+	return 0;
+}
