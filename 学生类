@@ -1,0 +1,33 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+//设计学生类
+class Student {
+public://公共权限
+
+	//类中的属性和行为 我们统一称为成员
+	//属性 成员属性 成员变量
+	string sno;//学号
+	string name;//姓名
+
+	//行为 成员函数 成员方法
+	void pr() {
+		cout << "该学生学号为" << sno << endl;
+		cout << "该学生姓名为" << name << endl;
+	}
+
+	//给姓名赋值
+	void setName(string Name) {
+		name = Name;
+	}
+};
+int main() {
+	Student s1;
+	//s1.name = "周文迪";
+	s1.setName("阿迪");
+	s1.sno = "2320";
+	s1.pr();
+	system("pause");
+	return 0;
+}
